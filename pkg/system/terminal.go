@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os/exec"
 	"strconv"
+	"strings"
 )
 
 func GetTerminalDimension() (uint, uint) {
@@ -35,5 +36,5 @@ func execCommand(cmdName string, params string) string {
 		return string(nil)
 	}
 
-	return string(stdout)
+	return strings.TrimSuffix(string(stdout), "\n")
 }
