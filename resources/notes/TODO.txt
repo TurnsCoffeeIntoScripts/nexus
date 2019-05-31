@@ -1,0 +1,5 @@
+READ
+    * https://www.darkcoding.net/software/pretty-command-line-console-output-on-unix-in-python-and-go-lang/
+    * https://github.com/buger/goterm/blob/master/terminal.go
+    *
+    * https://gamedev.stackexchange.com/questions/17238/how-do-you-organize-your-game-files-and-classes
