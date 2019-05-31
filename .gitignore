@@ -10,3 +10,7 @@
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
+
+# Everything that is under the folder 'bin' should be excluded (except for .gitkeep)
+bin/*
+!bin/.gitkeep
