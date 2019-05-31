@@ -33,7 +33,7 @@ func execCommand(cmdName string, params string) string {
 
 	if err != nil {
 		fmt.Println(err.Error())
-		return string(nil)
+		return ""
 	}
 
 	return strings.TrimSuffix(string(stdout), "\n")
