@@ -1,7 +1,10 @@
 package main
 
-import "github.com/TurnsCoffeeIntoScripts/nexus/pkg/system"
+import (
+	"fmt"
+	"github.com/TurnsCoffeeIntoScripts/nexus/pkg/system"
+)
 
 func main() {
-	system.GetTerminalDimension()
+	fmt.Println(system.GetTerminalDimension())
 }

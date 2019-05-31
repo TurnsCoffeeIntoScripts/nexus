@@ -3,16 +3,37 @@ package system
 import (
 	"fmt"
 	"os/exec"
+	"strconv"
 )
 
-func GetTerminalDimension() {
-	cmd := exec.Command("echo", "$(tput lines)")
+func GetTerminalDimension() (uint, uint) {
+	heightStr := execCommand("tput", "lines")
+	widthStr := execCommand("tput", "cols")
+
+	height, errH := strconv.Atoi(heightStr)
+	width, errW := strconv.Atoi(widthStr)
+
+	if errH != nil {
+		height = 0
+		fmt.Println("Could not extract terminal height")
+	}
+
+	if errW != nil {
+		width = 0
+		fmt.Println("Could not extract terminal width")
+	}
+
+	return uint(height), uint(width)
+}
+
+func execCommand(cmdName string, params string) string {
+	cmd := exec.Command(cmdName, params)
 	stdout, err := cmd.Output()
 
 	if err != nil {
 		fmt.Println(err.Error())
-		return
+		return string(nil)
 	}
 
-	print(string(stdout))
+	return string(stdout)
 }

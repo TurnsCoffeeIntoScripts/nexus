@@ -14,3 +14,7 @@
 # Everything that is under the folder 'bin' should be excluded (except for .gitkeep)
 bin/*
 !bin/.gitkeep
+
+# IDEs
+*.iml
+.idea/
