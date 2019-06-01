@@ -103,6 +103,10 @@ clean: ; $(info $(M) cleaning...)	@ ## Cleanup everything
 	@mkdir  $(BIN)
 	@touch $(BIN)/.gitkeep
 
+.PHONY: cleanbin
+cleanbin: ; $(info $(M) cleaning binary...) @ ## Cleanup the binary
+	@rm $(BIN)/$(PACKAGE)
+
 .PHONY: version
 version: ; $(info $(M) version...)	@ ## Prints current version
 	@echo $(VERSION)
