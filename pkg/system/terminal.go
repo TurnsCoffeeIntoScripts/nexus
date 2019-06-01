@@ -7,6 +7,8 @@ import (
 	"strings"
 )
 
+// GetTerminalDimension ...
+// Returns the width and height of the terminal running this program
 func GetTerminalDimension() (uint, uint) {
 	heightStr := execCommand("tput", "lines")
 	widthStr := execCommand("tput", "cols")
