@@ -22,6 +22,13 @@ all: fmt lint $(BIN) ; $(info $(M) building executable...) @ ## Build program bi
 		-ldflags '-X $(PACKAGE)/cmd.Version=$(VERSION) -X $(PACKAGE)/cmd.BuildDate=$(DATE)' \
 		-o $(BIN)/$(PACKAGE) cmd/main.go
 
+.PHONY: all
+nolint: fmt $(BIN) ; $(info $(M) building executable...) @ ## Build program binary
+	$Q $(GO) build \
+		-tags release \
+		-ldflags '-X $(PACKAGE)/cmd.Version=$(VERSION) -X $(PACKAGE)/cmd.BuildDate=$(DATE)' \
+		-o $(BIN)/$(PACKAGE) cmd/main.go
+
 # Tools
 
 $(BIN):
